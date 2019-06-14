@@ -1,4 +1,4 @@
-###INSTALL
+### Setup
 - need Ack, node, npm, mvim
 
 - clone repo
