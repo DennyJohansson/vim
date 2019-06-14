@@ -108,28 +108,6 @@ map <S-TAB> zA
 map <C-TAB> zR
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" S E T T I N G S
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" add line numbers
-:set nu
-" uncomment to use real tabs
-set autoindent expandtab tabstop=2 softtabstop=2 shiftwidth=2
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow = 1
-" allow code folding for javascript
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
-" safe write off for hotreloading
-:set backupcopy=yes
-" easy buffer menu , by using tab in terminal mode
-set wildchar=<Tab> wildmenu wildmode=full
-
-"
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ E D I T I N G   O P T I O N S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on       " turn on syntax highlighting
@@ -265,12 +243,26 @@ if has("gui_running")
     set guioptions=aAce
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" S E T T I N G S
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" uncomment to use real tabs
+set autoindent expandtab tabstop=2 softtabstop=2 shiftwidth=2
+" let g:javascript_plugin_jsdoc = 1
+" let g:javascript_plugin_ngdoc = 1
+" let g:javascript_plugin_flow = 1
+" allow code folding for javascript
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
+" safe write off for hotreloading
+:set backupcopy=yes
+" easy buffer menu , by using tab in terminal mode
+set wildchar=<Tab> wildmenu wildmode=full
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ P L U G I N   O P T I O N S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" misc
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -333,7 +325,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """ ack
-map <leader>ack :Ack 
+map <leader>ack :Ack
 map <leader>an :cn<cr>
 map <leader>ap :cp<cr>
 """ UltiSnips YCM Supertab
