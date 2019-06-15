@@ -35,5 +35,5 @@ cd ~/.vim/bundle/YouCompleteMe
 cd ~/.vim/bundle/vim-prettier && npm install
 ```
 
-- Download and install font source code pro
+- Download and install font:
 [Source Code Pro](https://fonts.google.com/specimen/Source+Code+Pro?selection.family=Source+Code+Pro)
