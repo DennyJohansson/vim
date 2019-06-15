@@ -1,13 +1,13 @@
-### Setup
-*prerequisite:
-- Ack,
-- git,
-- npm install -g prettier,
-- node,
-- npm,
-- mvim,
-- source code pro font*
+#### prerequisite:
+*Ack,
+git,
+npm install -g prettier,
+node,
+npm,
+mvim,
+source code pro font*
 
+### Setup
 - install Vundle
 
 ```shell
