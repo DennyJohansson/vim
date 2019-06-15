@@ -51,7 +51,7 @@ map <leader>cC <plug>NERDCommenterSexy
 map <leader>cu <plug>NERDCommenterUncomment
 
 """ NERDTree
-map <leader>d :NERDTreeToggle<cr>
+nnoremap <leader>d :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 let NERDTreeChDirMode=2
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
