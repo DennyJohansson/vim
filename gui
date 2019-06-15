@@ -1,0 +1,19 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" G U I   O P T I O N S
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("gui_running")
+    set mouse=a                 " use mouse when possible
+    set guifont=SourceCodePro-Regular:h14
+
+
+    " set default window size 170x48
+    set columns=999
+    set lines=999
+
+    " GUI option string.  Values:
+    "   a: visual-mode selections go to the clipboard
+    "   A: modeless selections go to the clipboard
+    "   c: don't pop up windows; use the console for dialog boxes and such
+    "   e: use GUI tab bar instead of text tab bar
+    set guioptions=aAce
+  endif

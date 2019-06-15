@@ -1,0 +1,81 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""" P L U G I N   O P T I O N S
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""" Prettier
+let g:prettier#config#tab_width = 1
+let g:prettier#config#use_tabs = 'true'
+
+""" Ale
+" In ~/.vim/vimrc, or somewhere similar.
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'scss': ['prettier']
+\}
+" set this to 1 to fix files when you save
+let g:ale_fix_on_save = 1
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+""" Oceanic next
+" Theme
+ syntax enable
+" for vim 7
+ set t_Co=256
+
+" for vim 8
+ if (has("termguicolors"))
+  set termguicolors
+ endif
+
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+""" bufexplorer
+let g:bufExplorerDetailedHelp=1     " show full help text by default
+" let g:bufExplorerShowRelativePath=1 " use relative paths
+let g:bufExplorerShowUnlisted=1     " display unlisted buffers
+
+""" NERDCommenter
+let NERDCreateDefaultMappings=0 " disable default mappings
+let NERDMenuMode=0              " disable menu
+let NERDSpaceDelims=1           " place spaces after comment chars
+let NERDDefaultNesting=0        " don't recomment commented lines
+
+map <leader>cc <plug>NERDCommenterToggle
+map <leader>cC <plug>NERDCommenterSexy
+map <leader>cu <plug>NERDCommenterUncomment
+
+""" NERDTree
+map <leader>d :NERDTreeToggle<cr>
+let NERDTreeShowHidden=1
+let NERDTreeChDirMode=2
+" How can I open a NERDTree automatically when vim starts up if no files were specified?
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" How can I open NERDTree automatically when vim starts up on opening a directory?
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" How can I close vim if the only window left open is a NERDTree?
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+""" ack
+map <leader>ack :Ack
+map <leader>an :cn<cr>
+map <leader>ap :cp<cr>
+""" UltiSnips YCM Supertab
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+""" YCM
+nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
