@@ -66,18 +66,18 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 map <leader>ack :Ack
 map <leader>an :cn<cr>
 map <leader>ap :cp<cr>
-""" UltiSnips YCM Supertab
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+""" Supertab
 let g:SuperTabDefaultCompletionType = '<C-n>'
-
+""" UltiSnips
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
 """ YCM
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
 """ Ctrlp
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] "Hide files in .gitignore
