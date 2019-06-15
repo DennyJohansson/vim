@@ -1,12 +1,3 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""
-""" BASED ON :: Ben Bleything's Vim Setup
-""" Based on the work of many others. See README.rdoc for credits.
-"""
-""" Git Hubs: http://github.com/bleything/dotvim
-""" Internet Electronic Mail: ben@bleything.net
-"""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -60,6 +51,7 @@ Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ap/vim-css-color'
 Plugin 'prettier/vim-prettier'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ctrlpvim/ctrlp.vim'
 "
 "
 " All of your Plugins must be added before the following line

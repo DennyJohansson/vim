@@ -1,3 +1,13 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""
+""" BASED ON :: Ben Bleything's Vim Setup
+""" Based on the work of many others. See README.rdoc for credits.
+"""
+""" Git Hubs: http://github.com/bleything/dotvim
+""" Internet Electronic Mail: ben@bleything.net
+"""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 source $HOME/.vim/vundle
 source $HOME/.vim/plugins
 source $HOME/.vim/basic
