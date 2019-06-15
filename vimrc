@@ -42,6 +42,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-surround'
@@ -58,6 +59,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ap/vim-css-color'
 Plugin 'prettier/vim-prettier'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 "
 "
 " All of your Plugins must be added before the following line
@@ -223,6 +225,9 @@ set statusline+=%=                        " right-align remainder
 set statusline+=0x%02B\                   " character hex value
 set statusline+=@\ L%l\ C%c\ (%P)\        " position in file
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ G U I   O P T I O N S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -231,9 +236,9 @@ if has("gui_running")
     set guifont=SourceCodePro-Regular:h14
 
 
-    " set default window size
-    set columns=170
-    set lines=48
+    " set default window size 170x48
+    set columns=999
+    set lines=999
 
     " GUI option string.  Values:
     "   a: visual-mode selections go to the clipboard
@@ -241,7 +246,8 @@ if has("gui_running")
     "   c: don't pop up windows; use the console for dialog boxes and such
     "   e: use GUI tab bar instead of text tab bar
     set guioptions=aAce
-endif
+  endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ S E T T I N G S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
