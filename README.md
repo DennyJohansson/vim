@@ -37,3 +37,15 @@ cd ~/.vim/bundle/vim-prettier && npm install
 
 - Download and install font:
 [Source Code Pro](https://fonts.google.com/specimen/Source+Code+Pro?selection.family=Source+Code+Pro)
+
+-install fd & fzf
+```shell
+brew install fd
+brew install fzf
+```
+
+- Setting fd as the default source for fzf
+```zshrc
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+```
