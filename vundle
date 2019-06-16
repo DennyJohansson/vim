@@ -56,6 +56,9 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mattn/emmet-vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'svermeulen/vim-easyclip'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'yggdroot/indentline'
 "
 "
 " All of your Plugins must be added before the following line
