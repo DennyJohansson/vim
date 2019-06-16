@@ -59,6 +59,11 @@ Plugin 'svermeulen/vim-easyclip'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'yggdroot/indentline'
+Plugin 'elzr/vim-json'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'Quramy/tsuquyomi'
+Plugin 'othree/html5.vim'
+Plugin 'jelera/vim-javascript-syntax'
 "
 "
 " All of your Plugins must be added before the following line

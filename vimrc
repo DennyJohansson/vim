@@ -37,3 +37,5 @@ augroup END
 :set backupcopy=yes
 " easy buffer menu , by using tab in terminal mode
 set wildchar=<Tab> wildmenu wildmode=full
+" easy reload vimrc
+nmap ,s :so ~/.vim/vimrc
