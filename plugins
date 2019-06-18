@@ -18,6 +18,7 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'scss': ['prettier']
 \}
+let b:ale_linters = ['eslint']
 " set this to 1 to fix files when you save
 let g:ale_fix_on_save = 1
 " Set this. Airline will handle the rest.
@@ -90,8 +91,8 @@ nmap < [
 nmap > ]
 omap < [
 omap > ]
-xmap < [
 xmap > ]
+xmap < [
 """ fzf
 set rtp+=/usr/local/opt/fzf
 map <C-p> :Files <cr>
