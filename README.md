@@ -62,4 +62,9 @@ _fzf_compgen_dir() {
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# ctags
+alias ctags="`brew --prefix`/bin/ctags"
+alias jtags=”ctags -R app config lib && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags”
+
 ```
