@@ -25,14 +25,14 @@ let g:ale_fix_on_save = 1
 let g:airline#extensions#ale#enabled = 1
 """ Oceanic next
 " Theme
- syntax enable
+syntax enable
 " for vim 7
- set t_Co=256
+set t_Co=256
 
 " for vim 8
- if (has("termguicolors"))
-  set termguicolors
- endif
+if (has("termguicolors"))
+ set termguicolors
+endif
 
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
@@ -54,7 +54,7 @@ map <leader>cu <plug>NERDCommenterUncomment
 """ NERDTree
 nnoremap <leader>d :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
-let NERDTreeChDirMode=2
+let NERDTreeChDirMode=3
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -84,7 +84,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
 let g:ycm_key_detailed_diagnostics = '<leader>D'
 """ Unimpaired
 nmap < [
@@ -152,3 +151,8 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
+""" ctags
+" go to def
+nnoremap <leader>w <C-]>
+""" leader q, w, e ??
+""" ctrl q, w, e, ?? buffers?

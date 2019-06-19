@@ -116,6 +116,7 @@ brew cask install karabiner-elements
 
 - install ctags & add alias to zshrc
 [medium guide: navigate es6 projects with vim using ctags](https://medium.com/trabe/navigate-es6-projects-with-vim-using-ctags-948d114b94f3)
+
 ```shell
 brew install ctags-exuberant
 ```
@@ -128,14 +129,16 @@ echo "--options=~/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
 
 ```
 
-- can't find file or directory error. Solved by copying the ctags/patterns-for-javscript ctags file into .ctags
+- can't find file or directory error: change to absolute path */Users/blabla/* instead of *~/*
 
 ```zshrc
 # ctags
 alias ctags="`brew --prefix`/bin/ctags"
 alias jtags=”ctags -R app config lib && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags”
 ```
-- in project root you can now create tags.
+- in project root you can now create tags. watch tags and see tag file update
 ```shell
 ctags -R .
+make watch
+vim -O tags ctagsrc index.js +'set autoread' +'autocmd! CursorHold,CursorHoldI * checktime'
 ```
