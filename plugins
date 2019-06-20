@@ -47,12 +47,7 @@ let NERDMenuMode=0              " disable menu
 let NERDSpaceDelims=1           " place spaces after comment chars
 let NERDDefaultNesting=0        " don't recomment commented lines
 
-map <leader>cc <plug>NERDCommenterToggle
-map <leader>cC <plug>NERDCommenterSexy
-map <leader>cu <plug>NERDCommenterUncomment
-
 """ NERDTree
-nnoremap <leader>d :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 let NERDTreeChDirMode=3
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
@@ -62,54 +57,17 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 :set backupcopy=yes
 " easy buffer menu , by using tab in terminal mode
 set wildchar=<Tab> wildmenu wildmode=full
-" easy reload vimrc
-nmap ,s :so ~/.vim/vimrc
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-""" ack
-map <leader>ack :Ack <space>
-map <leader>an :cn<cr>
-map <leader>ap :cp<cr>
-""" Supertab
-let g:SuperTabDefaultCompletionType = '<C-n>'
 """ UltiSnips
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-""" YCM
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:ycm_key_detailed_diagnostics = '<leader>D'
-""" Unimpaired
-nmap < [
-nmap > ]
-omap < [
-omap > ]
-xmap > ]
-xmap < [
 """ fzf
 set rtp+=/usr/local/opt/fzf
-map <C-p> :Files <cr>
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
 " Default fzf layout
 " - down / up / left / right
 let g:fzf_layout = { 'down': '~40%' }
-
-" In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
-let g:fzf_layout = { 'window': '10new' }
-
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -151,8 +109,3 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-""" ctags
-" go to def
-nnoremap <leader>w <C-]>
-""" leader q, w, e ??
-""" ctrl q, w, e, ?? buffers?
