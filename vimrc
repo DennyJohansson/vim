@@ -24,7 +24,7 @@ endif
 """ S E T T I N G S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " uncomment to use real tabs
-set autoindent expandtab tabstop=2 softtabstop=2 shiftwidth=2
+:set autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2
 " let g:javascript_plugin_jsdoc = 1
 " let g:javascript_plugin_ngdoc = 1
 " let g:javascript_plugin_flow = 1
@@ -36,6 +36,6 @@ augroup END
 " safe write off for hotreloading
 :set backupcopy=yes
 " easy buffer menu , by using tab in terminal mode
-set wildchar=<Tab> wildmenu wildmode=full
+:set wildchar=<Tab> wildmenu wildmode=full
 " easy reload vimrc
 nmap ,s :so ~/.vim/vimrc
