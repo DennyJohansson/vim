@@ -39,3 +39,4 @@ augroup END
 :set wildchar=<Tab> wildmenu wildmode=full
 " easy reload vimrc
 nmap ,s :so ~/.vim/vimrc
+
