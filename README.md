@@ -64,7 +64,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 ```
 - map CAPS-LOCK to esc & ctrl (when hold)
-
+- install karabiner-elements with brew or download from [karabiner-elements](https://pqrs.org/osx/karabiner/)
 ```
 brew cask install karabiner-elements
 ```
@@ -103,9 +103,10 @@ brew cask install karabiner-elements
 	  ]
 	}
   ]
+}
 ```
-- 2. save the file and put it into *~/.config/karabiner/assets/complex_modifications/* folder
-- 3. apply the complex modification, find the karabiner icon in your menu bar and go to *preferences*
+- 2. save the file and put it into  **~/.config/karabiner/assets/complex_modifications/**
+- 3. apply the complex modification, find the karabiner icon in your menu bar and go to **preferences**
 - 4. go to Complex Modifications tab and click the **Add rule** button
 - 5. at this point, you should be able to see a custom rule called **"Post Esc if Caps is tapped, Control if held"** with and **Enable** button to the right. Click it.
 - 6. it should show now that the rule is enabled. Now, go to parameters tab and change the value of *to_if_alone_timeout_milliseconds* from 1000 to 500 milliseconds.

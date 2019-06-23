@@ -13,14 +13,8 @@ map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_
 
 " quick buffer switching
-map <leader>[ :bprevious<CR>
-map <leader>] :bnext<CR>
-
-" shortcut to compile/run the current file
-map <leader>r :w<CR>:make %<CR>
-
-" shortcut to strip trailing whitespace
-map <leader>s :s/\s\+$//g<CR>
+" map <leader>q :bprevious<CR>
+" map <leader>w :bnext<CR>
 
 " fold helpers:
 "   Tab: toggle fold state
@@ -29,3 +23,60 @@ map <leader>s :s/\s\+$//g<CR>
 map <TAB> za
 map <S-TAB> zA
 map <C-TAB> zR
+
+""" fzf
+map <C-p> :Files <cr>
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+""" Unimpaired
+nmap < [
+nmap > ]
+omap < [
+omap > ]
+xmap > ]
+xmap < [
+" ]q :cnext
+" [q :cprevious
+" ]a :next
+" [b :bprevious
+" [<Space> add space line before
+" ]<Space>
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+""" YCM
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_detailed_diagnostics = '<leader>D'
+
+""" Ack
+map <leader>ack :Ack<space>
+map <leader>an :cn<cr>
+map <leader>ap :cp<cr>
+
+""" Supertab
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" easy reload vimrc
+nmap ,s :so ~/.vim/vimrc
+
+""" NERDTree
+nnoremap <leader>d :NERDTreeToggle<cr>
+
+""" NERDCommenter
+map <leader>cc <plug>NERDCommenterToggle
+map <leader>cC <plug>NERDCommenterSexy
+map <leader>cu <plug>NERDCommenterUncomment
+
+""" ctags
+nnoremap <leader>w <C-]>
+nnoremap <leader>q <C-t>
