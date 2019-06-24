@@ -39,4 +39,5 @@ augroup END
 :set wildchar=<Tab> wildmenu wildmode=full
 " easy reload vimrc
 nmap ,s :so ~/.vim/vimrc
-
+" hide tilde signs on blank lines, this is great paired with :Goyo
+hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg

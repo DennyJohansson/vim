@@ -76,7 +76,3 @@ nnoremap <leader>d :NERDTreeToggle<cr>
 map <leader>cc <plug>NERDCommenterToggle
 map <leader>cC <plug>NERDCommenterSexy
 map <leader>cu <plug>NERDCommenterUncomment
-
-""" ctags
-"nnoremap <leader>w <C-]> unimpaired
-"nnoremap <leader>q <C-t>
