@@ -116,3 +116,5 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 """ ./CLOJURE
+""" easytag
+let g:easytags_cmd = '/usr/local/bin/ctags'

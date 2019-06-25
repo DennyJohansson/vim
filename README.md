@@ -132,6 +132,7 @@ echo "--options=~/ctags-patterns-for-javascript/ctagsrc" >> ~/.ctags
 
 - can't find file or directory error: change to absolute path */Users/blabla/* instead of *~/*
 
+- add to *.zhrc*
 ```zshrc
 # ctags
 alias ctags="`brew --prefix`/bin/ctags"

@@ -78,5 +78,8 @@ map <leader>cC <plug>NERDCommenterSexy
 map <leader>cu <plug>NERDCommenterUncomment
 
 """ ctags
-"nnoremap <leader>w <C-]> unimpaired
-"nnoremap <leader>q <C-t>
+nnoremap <leader>w <C-]>
+nnoremap <leader>q <C-t>
+""" easyclip
+" easy clip shadow the add M
+nnoremap gm m
