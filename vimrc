@@ -26,8 +26,9 @@ endif
 " uncomment to use real tabs
 ":set autoindent expandtab tabstop=8 softtabstop=2 shiftwidth=2
 " use spaces with tab key
-set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-" let g:javascript_plugin_jsdoc = 1
+set tabstop=8 softtabstop=8 expandtab shiftwidth=8
+" smarttab
+" let g:javascript_plugin_jsdoc = 1"
 " let g:javascript_plugin_ngdoc = 1
 " let g:javascript_plugin_flow = 1
 " allow code folding for javascript
