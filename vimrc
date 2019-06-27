@@ -36,9 +36,11 @@ augroup javascript_folding
     au FileType javascript setlocal foldmethod=syntax
 augroup END
 " safe write off for hotreloading
-:set backupcopy=yes
+set backupcopy=yes
+set backupdir-=.
+set backupdir^=~/tmp,/tmp
 " easy buffer menu , by using tab in terminal mode
-:set wildchar=<Tab> wildmenu wildmode=full
+set wildchar=<Tab> wildmenu wildmode=full
 " easy reload vimrc
 nmap ,s :so ~/.vim/vimrc
 " hide tilde signs on blank lines, this is great paired with :Goyo
