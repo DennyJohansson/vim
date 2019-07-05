@@ -63,9 +63,6 @@ map <leader>ack :Ack<space>
 map <leader>an :cn<cr>
 map <leader>ap :cp<cr>
 
-""" Supertab
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 " easy reload vimrc
 nmap ,s :so ~/.vim/vimrc
 
@@ -80,6 +77,3 @@ map <leader>cu <plug>NERDCommenterUncomment
 """ ctags
 nnoremap <leader>w <C-]>
 nnoremap <leader>q <C-t>
-""" easyclip
-" easy clip shadow the add M
-nnoremap gm m

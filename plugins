@@ -16,9 +16,7 @@ let g:prettier#config#use_tabs = 'true'
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint'],
-\   'scss': ['prettier']
 \}
-let b:ale_linters = ['eslint']
 " set this to 1 to fix files when you save
 let g:ale_fix_on_save = 1
 " Set this. Airline will handle the rest.
@@ -51,14 +49,14 @@ let NERDDefaultNesting=0        " don't recomment commented lines
 let NERDTreeShowHidden=1
 let NERDTreeChDirMode=3
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " How can I open NERDTree automatically when vim starts up on opening a directory?
-:set backupcopy=yes
+" set backupcopy=yes
 " easy buffer menu , by using tab in terminal mode
-set wildchar=<Tab> wildmenu wildmode=full
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+" set wildchar=<Tab> wildmenu wildmode=full
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """ UltiSnips
@@ -109,6 +107,7 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
+nnoremap <C-g> :Rg<Cr>
 """ CLOJURE
 """ rainbow paratheses
 au VimEnter * RainbowParenthesesToggle

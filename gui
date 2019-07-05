@@ -3,8 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
     set mouse=a                 " use mouse when possible
-    set guifont=SourceCodePro-Regular:h14
-
+    set guifont=Inconsolata-Regular:h16
 
     " set default window size 170x48
     set columns=999
