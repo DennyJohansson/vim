@@ -105,9 +105,7 @@ command! -bang -nargs=* Rg
             \ 'rg --column --line-number --no-heading
             \  --color=always
             \  --smart-case '.shellescape(<q-args>), 1,
-            \  { 'options': '--color hl:222,hl+:123' }, 0)
-
-
+            \  { 'options': '--color hl:#26C5FF,hl+:#D4FF26' }, 0)
 
 function! s:fzf_statusline()
   " Override statusline as you like
@@ -118,7 +116,6 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-nnoremap <C-g> :Rg<Cr>
 """ CLOJURE
 """ rainbow paratheses
 au VimEnter * RainbowParenthesesToggle
@@ -128,3 +125,9 @@ au Syntax * RainbowParenthesesLoadBraces
 """ ./CLOJURE
 """ easytag
 let g:easytags_cmd = '/usr/local/bin/ctags'
+
+""" ctags
+command! -bar Tags if !empty(tagfiles()) | call fzf#run({
+\   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
+\   'sink':   'tag',
+\ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif
