@@ -98,6 +98,17 @@ let g:fzf_tags_command = 'ctags -R'
 
 " [Commands] --expect expression for directly executing the command
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+
+" change color of Rg output
+command! -bang -nargs=* Rg
+            \ call fzf#vim#grep(
+            \ 'rg --column --line-number --no-heading
+            \  --color=always
+            \  --smart-case '.shellescape(<q-args>), 1,
+            \  { 'options': '--color hl:222,hl+:123' }, 0)
+
+
+
 function! s:fzf_statusline()
   " Override statusline as you like
   highlight fzf1 ctermfg=161 ctermbg=251
