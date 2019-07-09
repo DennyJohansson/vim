@@ -64,6 +64,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 ":Goyo
