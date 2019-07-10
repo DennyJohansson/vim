@@ -80,3 +80,7 @@ map <leader>cu <plug>NERDCommenterUncomment
 """ ctags
 nnoremap <leader>w <C-]>
 nnoremap <leader>q <C-t>
+""" open vim files
+map <leader>vv :e ~/.vim/vundle
+map <leader>vb :e ~/.vim/bindings
+map <leader>vp :e ~/.vim/plugins
