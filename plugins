@@ -18,7 +18,7 @@ let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
 " set this to 1 to fix files when you save
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 """ Oceanic next
@@ -119,16 +119,8 @@ endfunction
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 """ CLOJURE
 """ rainbow paratheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+" au VimEnter * RainbowParenthesesToggle
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 """ ./CLOJURE
-""" easytag
-let g:easytags_cmd = '/usr/local/bin/ctags'
-
-""" ctags
-command! -bar Tags if !empty(tagfiles()) | call fzf#run({
-\   'source': "sed '/^\\!/d;s/\t.*//' " . join(tagfiles()) . ' | uniq',
-\   'sink':   'tag',
-\ }) | else | echo 'Preparing tags' | call system('ctags -R') | FZFTag | endif

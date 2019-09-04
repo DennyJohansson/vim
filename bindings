@@ -20,9 +20,9 @@ map <C-K> <C-W>k<C-W>_
 "   Tab: toggle fold state
 "   Shift-Tab: toggle state of outermost fold
 "   Ctrl-Tab: open all folds
-map <TAB> za
-map <S-TAB> zA
-map <C-TAB> zR
+" map <TAB> za
+" map <S-TAB> zA
+" map <C-TAB> zR
 
 """ fzf
 map <C-p> :Files <cr>
@@ -36,20 +36,6 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-""" Unimpaired
-nmap < [
-nmap > ]
-omap < [
-omap > ]
-xmap > ]
-xmap < [
-" ]q :cnext
-" [q :cprevious
-" ]a :next
-" [b :bprevious
-" [<Space> add space line before
-" ]<Space>
-
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
@@ -57,17 +43,12 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """ YCM
 " make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_key_list_select_completion = ['<C-w>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-q>', '<Up>']
 let g:ycm_key_detailed_diagnostics = '<leader>D'
 
-""" Ack
-map <leader>ack :Ack<space>
-map <leader>an :cn<cr>
-map <leader>ap :cp<cr>
-
 " easy reload vimrc
-nmap ,s :so ~/.vim/vimrc
+nmap ,s :so ~/.vim/vimrc <CR>
 
 """ NERDTree
 nnoremap <leader>d :NERDTreeToggle<cr>
@@ -77,10 +58,14 @@ map <leader>cc <plug>NERDCommenterToggle
 map <leader>cC <plug>NERDCommenterSexy
 map <leader>cu <plug>NERDCommenterUncomment
 
-""" ctags
-nnoremap <leader>w <C-]>
-nnoremap <leader>q <C-t>
 """ open vim files
-map <leader>vv :e ~/.vim/vundle
-map <leader>vb :e ~/.vim/bindings
-map <leader>vp :e ~/.vim/plugins
+map <leader>vv :e ~/.vim/vundle<CR>
+map <leader>vb :e ~/.vim/bindings<CR>
+map <leader>vp :e ~/.vim/plugins<CR>
+map <leader>vimrc :e ~/.vim/vimrc<CR>
+""" ALE
+map <leader>a :ALEFix<CR>
+
+""" Merginal
+map <leader>m :MerginalToggle<CR>
+
