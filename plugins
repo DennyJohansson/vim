@@ -32,8 +32,13 @@ if (has("termguicolors"))
  set termguicolors
 endif
 
-colorscheme OceanicNext
-let g:airline_theme='oceanicnext'
+" colorscheme OceanicNext
+" let g:gruvbox_contrast_light = 'medium'
+" set background=dark    " Setting dark mode
+" set background=light   " Setting light mode
+colorscheme gruvbox
+" let g:airline_theme='solarized'
+" let g:airline_theme='oceanicnext'
 """ bufexplorer
 let g:bufExplorerDetailedHelp=1     " show full help text by default
 " let g:bufExplorerShowRelativePath=1 " use relative paths
@@ -100,13 +105,14 @@ let g:fzf_tags_command = 'ctags -R'
 let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 let $FZF_DEFAULT_COMMAND='rg --files --smart-case'
-" change color of Rg output
+
 command! -bang -nargs=* Rg
-            \ call fzf#vim#grep(
-            \ 'rg --column --line-number --no-heading
-            \  --color=always
-            \  --smart-case '.shellescape(<q-args>), 1,
-            \  { 'options': '--color hl:#26C5FF,hl+:#D4FF26' }, 0)
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, { 'options': '--no-color' }, 0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 function! s:fzf_statusline()
   " Override statusline as you like
@@ -117,10 +123,3 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-""" CLOJURE
-""" rainbow paratheses
-" au VimEnter * RainbowParenthesesToggle
-" au Syntax * RainbowParenthesesLoadRound
-" au Syntax * RainbowParenthesesLoadSquare
-" au Syntax * RainbowParenthesesLoadBraces
-""" ./CLOJURE

@@ -41,6 +41,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'w0rp/ale'
 Plugin 'mhartington/oceanic-next'
+Plugin 'morhetz/gruvbox'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
 " Track the engine.
