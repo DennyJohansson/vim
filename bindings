@@ -20,9 +20,9 @@ map <C-K> <C-W>k<C-W>_
 "   Tab: toggle fold state
 "   Shift-Tab: toggle state of outermost fold
 "   Ctrl-Tab: open all folds
-" map <TAB> za
-" map <S-TAB> zA
-" map <C-TAB> zR
+map <TAB> za
+map <S-TAB> zA
+map <C-TAB> zR
 
 """ fzf
 map <C-p> :Files <cr>
@@ -69,4 +69,10 @@ nmap <silent> <leader>aj :ALENext<CR>
 nmap <silent> <leader>ak :ALEPrevious<CR>
 """ Merginal
 map <leader>m :MerginalToggle<CR>
-
+""" vim-test
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>

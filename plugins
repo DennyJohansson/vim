@@ -15,7 +15,7 @@ let g:prettier#config#use_tabs = 'true'
 " In ~/.vim/vimrc, or somewhere similar.
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint'],
+\   'javascript': ['eslint', 'prettier'],
 \}
 " set this to 1 to fix files when you save
 let g:ale_fix_on_save = 0
@@ -106,9 +106,16 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 let $FZF_DEFAULT_COMMAND='rg --files --smart-case'
 
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, { 'options': '--no-color' }, 0)
+let g:rg_command = '
+      \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+      \ --glob "!*.{min.js,swp,o,zip}"
+      \ --glob "!{yarn.lock,yarnw}"
+      \ --glob "!{.git,node_modules,.mirror}/*" '
+command! -bang -nargs=* Find call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+
+" command! -bang -nargs=* Rg
+  " \ call fzf#vim#grep(
+  " \   'rg --column --line-number --no-heading --color=always --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, { 'options': '--no-color' }, 0)
 
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
@@ -123,3 +130,38 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
+""" JSDOCS
+let g:jsdoc_enable_es6 = 1
+""" you complete me
+autocmd FileType javascript,typescript nmap <buffer> gd :YcmCompleter GoTo<cr>
+autocmd FileType javascript,typescript nmap <buffer> <leader>re :YcmCompleter RefactorRename 
+autocmd FileType javascript,typescript nmap <buffer> <leader>fu :YcmCompleter GoToReferences<cr>
+autocmd FileType javascript,typescript nmap <buffer> <leader>oi :YcmCompleter OrganizeImports<cr>
+autocmd FileType javascript,typescript nmap <buffer> <leader>fi :YcmCompleter FixIt<cr>
+""" vim test
+let g:test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
+autocmd FileType javascript,typescript nmap <buffer> <leader>tn :TestNearest<cr>
+autocmd FileType javascript,typescript nmap <buffer> <leader>ta :TestSuite<cr>
+autocmd FileType javascript,typescript nmap <buffer> <leader>tt :TestFile<cr>
+
+""" terminal colors
+let g:terminal_color_0  = '#282828' " dark0
+let g:terminal_color_1  = '#cc241d' " neutral_red
+let g:terminal_color_2  = '#98971a' " neutral_green
+let g:terminal_color_3  = '#d79921' " neutral_yellow
+let g:terminal_color_4  = '#258588' " neutral_blue
+let g:terminal_color_5  = '#b16286' " neutral_purple
+let g:terminal_color_6  = '#689d6a' " neutral_aqua
+let g:terminal_color_7  = '#a89984' " light4
+let g:terminal_color_8  = '#928374' " gray_245
+let g:terminal_color_9  = '#fb4934' " bright_red
+let g:terminal_color_10 = '#b8bb26' " bright_green
+let g:terminal_color_11 = '#fabd2f' " bright_yellow
+let g:terminal_color_12 = '#83a598' " bright_blue
+let g:terminal_color_13 = '#d3869b' " bright_purple
+let g:terminal_color_14 = '#8ec07c' " bright_aqua
+let g:terminal_color_15 = '#ebdbb2' " light1
+
+nnoremap <leader>t :terminal<cr>
+
+

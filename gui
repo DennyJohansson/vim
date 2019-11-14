@@ -3,7 +3,7 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_running")
     set mouse=a                 " use mouse when possible
-    set guifont=FiraMono-Regular:h14
+    set guifont=FiraMono-Regular:h12
 	" set default window size 170x48
 	set columns=999
 	set lines=999

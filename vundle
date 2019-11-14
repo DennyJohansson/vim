@@ -14,28 +14,15 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""" P L U G I N S
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+Plugin 'simeji/winresizer'
+Plugin 'kassio/neoterm'
+Plugin 'yuezk/vim-js'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'Valloric/YouCompleteMe'
@@ -44,9 +31,9 @@ Plugin 'mhartington/oceanic-next'
 Plugin 'morhetz/gruvbox'
 Plugin 'mileszs/ack.vim'
 Plugin 'scrooloose/nerdcommenter'
-" Track the engine.
+Plugin 'tpope/vim-sleuth'
 Plugin 'SirVer/ultisnips'
-" Snippets are separated from the engine. Add this if you want them:
+Plugin 'haya14busa/incsearch.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'jlanzarotta/bufexplorer'
 Plugin 'ap/vim-css-color'
@@ -64,13 +51,12 @@ Plugin 'othree/html5.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
-"Plugin 'xolox/vim-easytags'
-"Plugin 'majutsushi/tagbar'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
-":Goyo
+Plugin 'heavenshell/vim-jsdoc'
 Plugin 'junegunn/goyo.vim'
 Plugin 'idanarye/vim-merginal'
+Plugin 'janko/vim-test' 
 " CLOJURE PLUGINS
 " Plugin 'guns/vim-clojure-static'
 " Plugin 'guns/vim-clojure-highlight'
@@ -79,8 +65,6 @@ Plugin 'idanarye/vim-merginal'
 " Plugin 'tpope/vim-salve'
 " Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 " Plugin 'guns/vim-sexp'
-"
-"
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
