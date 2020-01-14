@@ -23,3 +23,25 @@ storiesOf('$1', module)
 		<$1></$1>
 	))
 endsnippet
+
+snippet testWithStore "test boilerplate with store"
+import React from 'react'
+import { render/*, act, fireEvent*/ } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import { Provider } from 'react-redux'
+import { configureStore } from 'testHelpers'
+import ${1:component} from './$1'
+
+const mockStore = configureStore(initialState)
+
+describe('<$1 />', () => {$2})
+endsnippet
+
+snippet test "basic test boilerplate"
+import React from 'react'
+import { render/*, act, fireEvent*/ } from '@testing-library/react'
+// import userEvent from '@testing-library/user-event'
+import ${1:component} from './$1'
+
+describe('<$1 />', () => {$2})
+endsnippet

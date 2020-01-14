@@ -1,3 +1,18 @@
+let sysname = substitute(system('uname'), "\n", "", "")
+
+" let g:loaded_netrwPlugin = 1
+
+" python path {{{
+
+if sysname == "Darwin"
+  let g:python3_host_prog = '/usr/local/bin/python3.7'
+  let g:python_host_prog = '/usr/local/bin/python'
+elseif sysname == "Linux"
+  let g:python3_host_prog  = '/usr/bin/python3'
+  let g:python_host_prog  = '/usr/bin/python'
+endif
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ P L U G I N   O P T I O N S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -15,7 +30,8 @@ let g:prettier#config#use_tabs = 'true'
 " In ~/.vim/vimrc, or somewhere similar.
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['eslint', 'prettier'],
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
 \}
 " set this to 1 to fix files when you save
 let g:ale_fix_on_save = 0
@@ -133,12 +149,13 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 """ JSDOCS
 let g:jsdoc_enable_es6 = 1
 """ you complete me
-autocmd FileType javascript,typescript nmap <buffer> gd :YcmCompleter GoTo<cr>
+nnoremap <leader>gd :YcmCompleter GoTo<cr>
 autocmd FileType javascript,typescript nmap <buffer> <leader>re :YcmCompleter RefactorRename 
 autocmd FileType javascript,typescript nmap <buffer> <leader>fu :YcmCompleter GoToReferences<cr>
 autocmd FileType javascript,typescript nmap <buffer> <leader>oi :YcmCompleter OrganizeImports<cr>
 autocmd FileType javascript,typescript nmap <buffer> <leader>fi :YcmCompleter FixIt<cr>
 """ vim test
+let test#strategy = 'neovim'
 let g:test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
 autocmd FileType javascript,typescript nmap <buffer> <leader>tn :TestNearest<cr>
 autocmd FileType javascript,typescript nmap <buffer> <leader>ta :TestSuite<cr>
@@ -162,6 +179,20 @@ let g:terminal_color_13 = '#d3869b' " bright_purple
 let g:terminal_color_14 = '#8ec07c' " bright_aqua
 let g:terminal_color_15 = '#ebdbb2' " light1
 
+""" terminal :: map terminal NORMAL mode to ctrl-o
+if has('nvim')
+  tmap <C-o> <C-\><C-n>
+endif
 nnoremap <leader>t :terminal<cr>
 
+augroup omnifuncs
+  autocmd!
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript,javascript.jsx setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+augroup end
 
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
