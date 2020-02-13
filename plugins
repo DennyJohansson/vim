@@ -150,16 +150,24 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 let g:jsdoc_enable_es6 = 1
 """ you complete me
 nnoremap <leader>gd :YcmCompleter GoTo<cr>
-autocmd FileType javascript,typescript nmap <buffer> <leader>re :YcmCompleter RefactorRename 
+autocmd FileType javascript,typescript nmap <buffer> <leader>re :YcmCompleter RefactorRename
 autocmd FileType javascript,typescript nmap <buffer> <leader>fu :YcmCompleter GoToReferences<cr>
 autocmd FileType javascript,typescript nmap <buffer> <leader>oi :YcmCompleter OrganizeImports<cr>
 autocmd FileType javascript,typescript nmap <buffer> <leader>fi :YcmCompleter FixIt<cr>
 """ vim test
-let test#strategy = 'neovim'
 let g:test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
+let test#strategy = {
+        \ 'nearest': 'neovim',
+        \ 'file': 'neovim',
+        \ 'suite': 'basic',
+\}
+let g:test#preserve_screen = 1
+""" let test#neovim#term_position = "vert"
+
 autocmd FileType javascript,typescript nmap <buffer> <leader>tn :TestNearest<cr>
 autocmd FileType javascript,typescript nmap <buffer> <leader>ta :TestSuite<cr>
 autocmd FileType javascript,typescript nmap <buffer> <leader>tt :TestFile<cr>
+
 
 """ terminal colors
 let g:terminal_color_0  = '#282828' " dark0
@@ -183,7 +191,7 @@ let g:terminal_color_15 = '#ebdbb2' " light1
 if has('nvim')
   tmap <C-o> <C-\><C-n>
 endif
-nnoremap <leader>t :terminal<cr>
+""" nnoremap <leader>t :terminal<cr>
 
 augroup omnifuncs
   autocmd!
