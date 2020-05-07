@@ -20,7 +20,7 @@ map <C-K> <C-W>k<C-W>_
 "   Tab: toggle fold state
 "   Shift-Tab: toggle state of outermost fold
 "   Ctrl-Tab: open all folds
-map <TAB> za
+map <leader><TAB> za
 map <S-TAB> zA
 map <C-TAB> zR
 

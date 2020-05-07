@@ -28,15 +28,15 @@ let g:prettier#config#use_tabs = 'true'
 
 """ Ale
 " In ~/.vim/vimrc, or somewhere similar.
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
-\}
+" let g:ale_fixers = {
+" \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+" \   'javascript': ['prettier'],
+" \   'typescript': ['prettier'],
+" \}
 " set this to 1 to fix files when you save
-let g:ale_fix_on_save = 0
+" let g:ale_fix_on_save = 0
 " Set this. Airline will handle the rest.
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
 """ Oceanic next
 " Theme
 syntax enable
@@ -69,6 +69,7 @@ let NERDDefaultNesting=0        " don't recomment commented lines
 """ NERDTree
 let NERDTreeShowHidden=1
 let NERDTreeChDirMode=3
+map <leader>r :NERDTreeFind<cr>
 " How can I open a NERDTree automatically when vim starts up if no files were specified?
 " autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -81,7 +82,7 @@ let NERDTreeChDirMode=3
 " How can I close vim if the only window left open is a NERDTree?
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 """ UltiSnips
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
+" let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/UltiSnips']
 """ fzf
 set rtp+=/usr/local/opt/fzf
 " Default fzf layout
@@ -129,10 +130,6 @@ let g:rg_command = '
       \ --glob "!{.git,node_modules,.mirror}/*" '
 command! -bang -nargs=* Find call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
-" command! -bang -nargs=* Rg
-  " \ call fzf#vim#grep(
-  " \   'rg --column --line-number --no-heading --color=always --colors "match:fg:yellow" --smart-case '.shellescape(<q-args>), 1, { 'options': '--no-color' }, 0)
-
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -147,13 +144,7 @@ endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 """ JSDOCS
-let g:jsdoc_enable_es6 = 1
-""" you complete me
-nnoremap <leader>gd :YcmCompleter GoTo<cr>
-autocmd FileType javascript,typescript nmap <buffer> <leader>re :YcmCompleter RefactorRename
-autocmd FileType javascript,typescript nmap <buffer> <leader>fu :YcmCompleter GoToReferences<cr>
-autocmd FileType javascript,typescript nmap <buffer> <leader>oi :YcmCompleter OrganizeImports<cr>
-autocmd FileType javascript,typescript nmap <buffer> <leader>fi :YcmCompleter FixIt<cr>
+" let g:jsdoc_enable_es6 = 1
 """ vim test
 let g:test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
 let test#strategy = {

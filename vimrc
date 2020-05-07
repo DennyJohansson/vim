@@ -15,6 +15,7 @@ source $HOME/.vim/window
 source $HOME/.vim/editing
 source $HOME/.vim/filetypes
 source $HOME/.vim/plugins
+source $HOME/.vim/coc
 
 if has("gui_running")
     source $HOME/.vim/gui

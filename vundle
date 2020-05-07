@@ -3,74 +3,81 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'gioele/vim-autoswap'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'pangloss/vim-javascript'
-Plugin 'simeji/winresizer'
-Plugin 'kassio/neoterm'
-Plugin 'yuezk/vim-js'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'w0rp/ale'
-Plugin 'mhartington/oceanic-next'
-Plugin 'morhetz/gruvbox'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-sleuth'
-Plugin 'SirVer/ultisnips'
-Plugin 'haya14busa/incsearch.vim'
-Plugin 'honza/vim-snippets'
-Plugin 'jlanzarotta/bufexplorer'
-Plugin 'ap/vim-css-color'
-Plugin 'prettier/vim-prettier'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'mattn/emmet-vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'yggdroot/indentline'
-" Plugin 'elzr/vim-json'
-" Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'othree/html5.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-Plugin 'heavenshell/vim-jsdoc'
-Plugin 'junegunn/goyo.vim'
-Plugin 'idanarye/vim-merginal'
-Plugin 'janko/vim-test' 
-Plugin 'godlygeek/tabular'
+Plug 'gioele/vim-autoswap'
+Plug 'tpope/vim-fugitive'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'pangloss/vim-javascript'
+Plug 'simeji/winresizer'
+Plug 'kassio/neoterm'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'w0rp/ale'
+Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
+" Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-sleuth'
+" Plug 'SirVer/ultisnips'
+Plug 'haya14busa/incsearch.vim'
+" Plug 'honza/vim-snippets'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'ap/vim-css-color'
+Plug 'prettier/vim-prettier'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mattn/emmet-vim'
+" Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-unimpaired'
+" Plug 'easymotion/vim-easymotion'
+Plug 'yggdroot/indentline'
+" Plug 'elzr/vim-json'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'peitalin/vim-jsx-typescript'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'Quramy/tsuquyomi'
+" Plug 'othree/html5.vim'
+" Plug 'jelera/vim-javascript-syntax'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+" Plug 'heavenshell/vim-jsdoc'
+" Plug 'junegunn/goyo.vim'
+Plug 'idanarye/vim-merginal'
+Plug 'janko/vim-test' 
+Plug 'godlygeek/tabular'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 " CLOJURE PLUGINS
-" Plugin 'guns/vim-clojure-static'
-" Plugin 'guns/vim-clojure-highlight'
-" Plugin 'kien/rainbow_parentheses.vim'
-" Plugin 'tpope/vim-fireplace'
-" Plugin 'tpope/vim-salve'
-" Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-" Plugin 'guns/vim-sexp'
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" Plug 'guns/vim-clojure-static'
+" Plug 'guns/vim-clojure-highlight'
+" Plug 'kien/rainbow_parentheses.vim'
+" Plug 'tpope/vim-fireplace'
+" Plug 'tpope/vim-salve'
+" Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" Plug 'guns/vim-sexp'
+" All of your Plugs must be added before the following line
+" Initialize plugin system
+call plug#end()
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 filetype plugin on
