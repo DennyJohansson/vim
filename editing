@@ -36,12 +36,35 @@ set listchars+=precedes:«    " show a « when a line goes off the left
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ F O L D I N G   O P T I O N S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set foldenable        " enable folding
-set foldmethod=indent " use the syntax definitions' folding
-set foldlevelstart=99 " start with all folds open when switching buffers
-set foldcolumn=3      " adds two columns of fold status on the left-hand
+" set foldenable        " enable folding
+" set foldmethod=indent " use the syntax definitions' folding
+" set foldlevelstart=99 " start with all folds open when switching buffers
+" set foldcolumn=3      " adds two columns of fold status on the left-hand
                       " side of the screen
-
+set foldmethod=manual
+augroup jsFolds
+  autocmd!
+  " autocmd FileType javascript,typescript,json syntax region braceFold start="{" end="}" transparent fold
+  " autocmd FileType javascript,typescript,json syntax region bracketFold start="\[" end="\]" transparent fold
+  " autocmd FileType javascript,typescript,json syntax sync fromstart
+  " autocmd FileType javascript,typescript,json set foldmethod=syntax
+  let javaScript_fold=1
+  set foldlevelstart=99
+  set foldlevel=99
+  autocmd FileType javascript,typescript setlocal foldmethod=expr
+  autocmd FileType javascript,typescript setlocal foldexpr=JSFolds()
+  function! JSFolds()
+    let thisline = getline(v:lnum)
+    if thisline =~? '\v^\s*$'
+      return '-1'
+    endif
+    if thisline =~ '^import.*$'
+      return 1
+    else
+      return indent(v:lnum) / &shiftwidth
+    endif
+  endfunction
+augroup end
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ S E A R C H   O P T I O N S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

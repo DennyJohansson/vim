@@ -146,19 +146,21 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 """ JSDOCS
 " let g:jsdoc_enable_es6 = 1
 """ vim test
-let g:test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
-let test#strategy = {
-        \ 'nearest': 'neovim',
-        \ 'file': 'neovim',
-        \ 'suite': 'basic',
-\}
-let g:test#preserve_screen = 1
+" let g:test#javascript#jest#file_pattern = '\v(__tests__/.*|(spec|test))\.(js|jsx|coffee|ts|tsx)$'
+" let test#strategy = {
+        " \ 'nearest': 'neovim',
+        " \ 'file': 'neovim',
+        " \ 'suite': 'basic',
+" \}
+" let g:test#preserve_screen = 1
 """ let test#neovim#term_position = "vert"
 
-autocmd FileType javascript,typescript nmap <buffer> <leader>tn :TestNearest<cr>
-autocmd FileType javascript,typescript nmap <buffer> <leader>ta :TestSuite<cr>
-autocmd FileType javascript,typescript nmap <buffer> <leader>tt :TestFile<cr>
-
+" autocmd FileType javascript,typescript nmap <buffer> <leader>tn :TestNearest<cr>
+" autocmd FileType javascript,typescript nmap <buffer> <leader>ta :TestSuite<cr>
+" autocmd FileType javascript,typescript nmap <buffer> <leader>tt :TestFile<cr>
+" Run jest for current test
+nnoremap <leader>tn :call CocAction('runCommand', 'jest.singleTest')<CR>
+nnoremap <leader>tt :call  CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
 
 """ terminal colors
 let g:terminal_color_0  = '#282828' " dark0

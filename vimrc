@@ -33,10 +33,10 @@ endif
 " let g:javascript_plugin_ngdoc = 1
 " let g:javascript_plugin_flow = 1
 " allow code folding for javascript
-augroup javascript_folding
-    au!
-    au FileType javascript setlocal foldmethod=syntax
-augroup END
+" augroup javascript_folding
+    " au!
+    " au FileType javascript setlocal foldmethod=syntax
+" augroup END
 " safe write off for hotreloading
 " set backupcopy=yes
 " set backupdir-=.
@@ -47,3 +47,29 @@ augroup END
 set wildchar=<Tab> wildmenu wildmode=full
 " hide tilde signs on blank lines, this is great paired with :Goyo
 hi! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+set foldmethod=manual
+augroup jsFolds
+  autocmd!
+  " autocmd FileType javascript,typescript,json syntax region braceFold start="{" end="}" transparent fold
+  " autocmd FileType javascript,typescript,json syntax region bracketFold start="\[" end="\]" transparent fold
+  " autocmd FileType javascript,typescript,json syntax sync fromstart
+  " autocmd FileType javascript,typescript,json set foldmethod=syntax
+  let javaScript_fold=1
+  set foldlevelstart=99
+  set foldlevel=99
+  autocmd FileType javascript,typescript setlocal foldmethod=expr
+  autocmd FileType javascript,typescript setlocal foldexpr=JSFolds()
+  function! JSFolds()
+    let thisline = getline(v:lnum)
+    if thisline =~? '\v^\s*$'
+      return '-1'
+    endif
+    if thisline =~ '^import.*$'
+      return 1
+    else
+      return indent(v:lnum) / &shiftwidth
+    endif
+  endfunction
+augroup end
