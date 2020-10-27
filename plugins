@@ -16,16 +16,22 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ P L U G I N   O P T I O N S
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 """ Prettier
-let g:prettier#config#tab_width = 1
-let g:prettier#config#use_tabs = 'true'
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" let g:prettier#config#tab_width = 1
+" let g:prettier#config#use_tabs = 'true'
 
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+" Show commands.
+nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
 """ Ale
 " In ~/.vim/vimrc, or somewhere similar.
 " let g:ale_fixers = {
@@ -154,13 +160,24 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " \}
 " let g:test#preserve_screen = 1
 """ let test#neovim#term_position = "vert"
-
+" Run jest for current file
 " autocmd FileType javascript,typescript nmap <buffer> <leader>tn :TestNearest<cr>
 " autocmd FileType javascript,typescript nmap <buffer> <leader>ta :TestSuite<cr>
 " autocmd FileType javascript,typescript nmap <buffer> <leader>tt :TestFile<cr>
 " Run jest for current test
+" nnoremap <leader>tn :call CocAction('runCommand', 'jest.singleTest')<CR>
+" nnoremap <leader>tt :call  CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
+" Run jest for current project
+" Init jest in current cwd, require global jest command exists
+" command! JestInit :call CocAction('runCommand', 'jest.init')
+" command! -nargs=0 Jest :call  CocAction('runCommand', 'jest.projectTest')
+
+" Run jest for current file
+" command! -nargs=0 JestCurrent :call  CocAction('runCommand', 'jest.fileTest', ['%'])
+
+" Run jest for current test
 nnoremap <leader>tn :call CocAction('runCommand', 'jest.singleTest')<CR>
-nnoremap <leader>tt :call  CocAction('runCommand', 'jest.fileTest', ['%'])<CR>
+
 
 """ terminal colors
 let g:terminal_color_0  = '#282828' " dark0

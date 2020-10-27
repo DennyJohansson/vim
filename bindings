@@ -90,4 +90,4 @@ nnoremap  <leader>yy  "+yy
 " vnoremap <leader>P "+P
 
 """ mouse
-set mouse=a
+" set mouse=a
